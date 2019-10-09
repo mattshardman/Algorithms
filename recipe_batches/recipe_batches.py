@@ -3,7 +3,27 @@
 import math
 
 def recipe_batches(recipe, ingredients):
-  pass 
+  # while all ingredients are greater than recipe minus ingredient deduct recipe amount from ingreaient
+  # keep looping until deducting an ingredient from another would make it negative
+  loop = True
+  count = 0
+  while loop == True:
+    for ing in recipe.items():
+      if not ingredients.get(ing[0]):
+        loop = False
+        break 
+
+      summer = ingredients.get(ing[0]) - ing[1]
+      if summer < 0:
+        loop = False
+        break
+
+    if loop == True:
+      for ing in recipe.items():
+        ingredients[ing[0]] = ingredients[ing[0]] - ing[1]
+      count += 1
+  return count
+
 
 
 if __name__ == '__main__':
