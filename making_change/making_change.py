@@ -11,6 +11,8 @@ def making_change(amount, denominations):
 
   combinations = 0
   for coin in range(len(denominations)):
+    if denominations[coin] > amount:
+      break 
     combinations += making_change(amount - denominations[coin], denominations[coin:])
   
   return combinations
