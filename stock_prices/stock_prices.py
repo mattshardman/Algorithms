@@ -1,9 +1,15 @@
 #!/usr/bin/python
-
 import argparse
 
 def find_max_profit(prices):
-  pass
+  diff = prices[1] - prices[0]
+  # compare each number to all previous numbers and calc difference
+  for i in range(len(prices) - 1):
+    for j in range(i + 1):
+      x = prices[i + 1] - prices[j] 
+      if x > diff:
+        diff = x
+  return diff
 
 
 if __name__ == '__main__':
